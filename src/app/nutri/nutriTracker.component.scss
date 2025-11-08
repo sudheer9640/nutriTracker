@@ -1,0 +1,167 @@
+:host {
+    display: block;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.selector {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.selector label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.selector select {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.add-food {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: end;
+}
+
+.add-food label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.add-food input,
+.add-food select {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.add-food button {
+    padding: 0.6rem 1rem;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.add-food button:hover {
+    background-color: #005fa1;
+}
+
+.selected-foods {
+    margin-bottom: 2rem;
+}
+
+.selected-foods h3 {
+    margin-bottom: 0.5rem;
+}
+
+.selected-foods ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.selected-foods li {
+    margin-bottom: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selected-foods button {
+    background-color: #e81123;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+}
+
+.selected-foods button:hover {
+    background-color: #c50f1f;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    background-color: white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+th,
+td {
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+}
+
+.status-icon span {
+    font-size: 1.2rem;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.status-optimal {
+  background-color: #e6f4ea;
+  color: #0b6e4f;
+}
+
+.status-moderate {
+  background-color: #fff8e1;
+  color: #f9a825;
+}
+
+.status-warn {
+  background-color: #fff8e1;
+  color: #f9a825;
+}
+
+.status-low {
+  background-color: #fdecea;
+  color: #f54235;
+}
+
+.status-excess {
+  background-color: #fff3f3;
+  color: #b00020;
+}

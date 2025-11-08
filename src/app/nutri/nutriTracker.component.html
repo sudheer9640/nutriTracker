@@ -1,0 +1,252 @@
+<div class="dashboard-container">
+    <div class="profile-row">
+        <div class="selector">
+            <label for="gender">Gender</label>
+            <select id="gender" [(ngModel)]="selectedGender" (change)="updateRDAs()">
+                @for (g of genders; track $index) {
+                <option [value]="g">{{ g }}</option>
+                }
+            </select>
+        </div>
+        <div class="selector">
+            <label for="age">Age Group</label>
+            <select id="age" [(ngModel)]="selectedAgeGroup" (change)="updateRDAs()">
+                @for (age of ageGroups; track $index) {
+                <option [value]="age">{{ age }}</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="add-food"> <label for="food">Select Food</label> <select id="food" [(ngModel)]="selectedFood">
+            <option [ngValue]="null" disabled>Select a food</option>
+            <optgroup label="Cereals(Cooked)">
+                @for (food of cereals; track $index) {
+                <option [ngValue]="food">{{ food.name }}</option>
+                }
+            </optgroup>
+             <optgroup label="Millets(Cooked)">
+                @for (food of millets; track $index) {
+                <option [ngValue]="food">{{ food.name }}</option>
+                }
+            </optgroup>
+            <optgroup label="Non Veg Foods(Cooked)">
+                @for (food of nonVegFoods; track $index) {
+                <option [ngValue]="food">{{food.name }}</option>
+                }
+            </optgroup>
+            <optgroup label="Pulses(Cooked)">
+                @for (food of pulses; track $index) {
+                <option [ngValue]="food">{{ food.name }}</option>
+                }
+            </optgroup>
+            <optgroup label="Vegetables(Cooked)">
+                @for (food of vegetables; track $index) {
+                <option [ngValue]="food">{{food.name }}</option>
+                }
+            </optgroup>
+            <optgroup label="Dairy Products">
+                @for (food of dairyFoods; track $index) {
+                <option [ngValue]="food">{{food.name }}</option>
+                }
+            </optgroup>
+            <optgroup label="Fruits">
+                @for (food of fruits; track $index) {
+                <option [ngValue]="food">{{ food.name }}</option>
+                }
+            </optgroup>
+            <optgroup label="Nuts(Soaked)">
+                @for (food of nuts; track $index) {
+                <option [ngValue]="food">{{food.name }}</option>
+                }
+            </optgroup>
+            <optgroup label="DryFruits(Soaked)">
+                @for (food of dryFruits; track $index) {
+                <option [ngValue]="food">{{food.name }}</option>
+                }
+            </optgroup>
+            <optgroup label="Seeds(Soaked)">
+                @for (food of seeds; track $index) {
+                <option [ngValue]="food">{{food.name }}</option>
+                }
+            </optgroup>
+            <optgroup label="Liquids">
+                @for (food of liquids; track $index) {
+                <option [ngValue]="food">{{ food.name }}</option>
+                }
+            </optgroup>
+        </select>
+        <label for="quantity">Quantity</label>
+        <input name="quantity" id="quantity" type="number" [(ngModel)]="selectedQuantity" min="1" />
+        <label>Units: {{selectedFood?.units}}</label>
+        <button type="button" (click)="this.selectedQuantity && addFood()">Add</button>
+    </div>
+
+    <!-- Selected Foods -->
+    <div class="selected-foods">
+        <h3>Selected Foods</h3>
+        <ul>
+            @for (food of selectedList; track $index) {
+            <li> {{ food.name }} - {{ food.quantity }} {{ food.unit }}
+                <button (click)="removeFood(food.name)">Remove</button>
+            </li>
+            }
+        </ul>
+    </div>
+    <h3>🧬 Macronutrients as per RDA needed</h3>
+    <table class="macro-rda-table">
+        <thead>
+            <tr>
+                <th>RDA</th>
+                @for (macro of masterMacros; track $index) {
+                @if(macroRdaTotals[macro.name]) {
+                <th [ngClass]="getStatusClass(macroRdaTotals[macro.name].status)">
+                    {{ macro.name }}<br>
+                    <small>{{ macro.rda }}{{ macro.unit }} {{macroRdaTotals[macro.name].icon}}</small>
+                </th>
+                }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (row of macroRdaMatrix; track $index) {
+            <tr>
+                <td>{{ row.food }}</td>
+                @for (macro of masterMacros; track $index) {
+                <td> {{ row.values[macro.name].value }} {{ macro.unit }}<br>
+                    <small>{{ row.values[macro.name].percent}}%</small>
+                </td>
+                }
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td><strong>Total</strong></td>
+                @for (macro of masterMacros; track $index) {
+                @if(macroRdaTotals[macro.name]) {
+                <td [ngClass]="getStatusClass(macroRdaTotals[macro.name].status)">
+                    <strong>{{macroRdaTotals[macro.name].percent }}%</strong>
+                </td>
+                }
+                }
+            </tr>
+        </tfoot>
+    </table>
+    <h3>🧬 Vitamins as per RDA needed</h3>
+    <table class="vitamin-rda-table">
+        <thead>
+            <tr>
+                <th>RDA</th>
+                @for (vitamin of masterVitamins; track $index) {
+                @if(vitaminRdaTotals[vitamin.name]) {
+                <th [ngClass]="getStatusClass(vitaminRdaTotals[vitamin.name].status)">{{ vitamin.name }}<br>
+                    <small>{{ vitamin.rda }} {{ vitamin.unit }} {{vitaminRdaTotals[vitamin.name].icon}}</small>
+                </th>
+                }
+                }
+            </tr>
+        </thead>
+        <tbody> @for (row of vitaminRdaMatrix; track $index) { <tr>
+                <td>{{ row.food }}</td>
+                @for (vitamin of masterVitamins; track $index) {
+                <td> {{row.values[vitamin.name].value }} {{ vitamin.unit }}<br>
+                    <small>{{row.values[vitamin.name].percent }}%</small>
+                </td>
+                }
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td><strong>Total</strong></td>
+                @for (vitamin of masterVitamins; track $index) {
+                @if(vitaminRdaTotals[vitamin.name]) {
+                <td [ngClass]="getStatusClass(vitaminRdaTotals[vitamin.name].status)">
+                    <strong>{{vitaminRdaTotals[vitamin.name].percent }}%</strong>
+                </td>
+                }
+                }
+            </tr>
+        </tfoot>
+    </table>
+
+    <h3>🧱 Minerals as per RDA needed</h3>
+    <table class="mineral-rda-table">
+        <thead>
+            <tr>
+                <th>RDA</th>
+                @for (mineral of masterMinerals; track $index) {
+                @if(mineralRdaTotals[mineral.name]) {
+                <th [ngClass]="getStatusClass(mineralRdaTotals[mineral.name].status)">{{ mineral.name }}<br>
+                    <small>{{ mineral.rda }} {{ mineral.unit }} {{mineralRdaTotals[mineral.name].icon}}</small>
+                </th>
+                }
+                }
+            </tr>
+        </thead>
+        <tbody> @for (row of mineralRdaMatrix; track $index) {
+            <tr>
+                <td>{{ row.food }}</td>
+                @for (mineral of masterMinerals; track $index) {
+                <td>
+                    {{ row.values[mineral.name].value }} {{ mineral.unit }}<br>
+                    <small>{{ row.values[mineral.name].percent }}%</small>
+                </td>
+                }
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td><strong>Total</strong></td>
+                @for (mineral of masterMinerals; track $index) {
+                @if(mineralRdaTotals[mineral.name]) {
+                <td [ngClass]="getStatusClass(mineralRdaTotals[mineral.name].status)">
+                    <strong>{{mineralRdaTotals[mineral.name].percent }}%</strong>
+                </td>
+                }
+                }
+            </tr>
+        </tfoot>
+    </table>
+    <h2 class="section-title">🍽️ Major Food Sources by Nutrient Type</h2>
+    <h3>🧬 Macronutrients</h3>
+    <table class="nutrient-table">
+        <tr>
+            <th>Macronutrient</th>
+            <th>Major Food Sources</th>
+        </tr>
+        @for(item of macrosFoodSources;track $index) {
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.sources.join(', ') }}</td>
+        </tr>
+        }
+    </table>
+    <h3>🌿 Vitamins</h3>
+    <table class="nutrient-table">
+        <tr>
+            <th>Vitamin</th>
+            <th>Major Food Sources</th>
+        </tr>
+        @for(item of vitaminsFoodSources; track $index) {
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.sources.join(', ') }}</td>
+        </tr>
+        }
+    </table>
+    <h3>🧱 Minerals</h3>
+    <table class="nutrient-table">
+        <tr>
+            <th>Mineral</th>
+            <th>Major Food Sources</th>
+        </tr>
+        @for(item of mineralsFoodSources; track $index) {
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.sources.join(', ') }}</td>
+        </tr>
+        }
+    </table>
+</div>
