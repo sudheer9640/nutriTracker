@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import {
-  vitaminRDA, mineralRDA, macroRDA, masterVitamins, masterMinerals, masterMacros, Food, Nutrient,
+  vitaminRDA, mineralRDA, macroRDA, masterVitamins, masterMinerals, masterMacros, masterAminoAcids, Food, Nutrient,
   NutrientP, macrosFoodSources, vitaminsFoodSources, mineralsFoodSources, nuts, seeds, fruits, vegetables,
   pulses, nonVegFoods, cereals, dairyFoods, liquids, millets, dryFruits
 } from './rda-tables';
@@ -30,12 +30,17 @@ export class NutriTrackerComponent implements OnInit {
   selectedQuantity: number | null = 100;
   selectedList: {
     name: string; quantity: number;
-    unit: string;
-    nutrients: { [key: string]: number }
+    units: string;
+    minerals: { [key: string]: number };
+    vitamins: { [key: string]: number };
+    aminoAcids: { [key: string]: number };
+    macros: { [key: string]: number };
   }[] = [];
   masterVitamins: Nutrient[] = masterVitamins;
   masterMinerals: Nutrient[] = masterMinerals;
   masterMacros: Nutrient[] = masterMacros;
+  masterAminoAcids: Nutrient[] = masterAminoAcids;
+
   fruits: Food[] = fruits;
   vegetables: Food[] = vegetables;
   nonVegFoods: Food[] = nonVegFoods;
@@ -50,10 +55,12 @@ export class NutriTrackerComponent implements OnInit {
   macroRdaMatrix: NutrientRdaRow[] = [];
   vitaminRdaMatrix: NutrientRdaRow[] = [];
   mineralRdaMatrix: NutrientRdaRow[] = [];
+  aminoAcidRdaMatrix: NutrientRdaRow[] = [];
 
   macroRdaTotals: { [macroName: string]: { percent: number; status: string; icon: string } } = {};
   vitaminRdaTotals: { [vitaminName: string]: { percent: number; status: string; icon: string } } = {};
   mineralRdaTotals: { [mineralName: string]: { percent: number; status: string; icon: string } } = {};
+  aminoAcidRdaTotals: { [aminoAcidName: string]: { percent: number; status: string; icon: string } } = {};
 
   mineralsFoodSources = mineralsFoodSources;
   vitaminsFoodSources = vitaminsFoodSources;
@@ -89,8 +96,11 @@ export class NutriTrackerComponent implements OnInit {
     this.selectedList.push({
       name: this.selectedFood.name,
       quantity: this.selectedQuantity,
-      unit: this.selectedFood.units,
-      nutrients: this.selectedFood.nutrients
+      units: this.selectedFood.units,
+      vitamins: this.selectedFood.vitamins,
+      macros: this.selectedFood.macros,
+      aminoAcids: this.selectedFood.aminoAcids,
+      minerals: this.selectedFood.minerals
     });
     this.updateNutrientsMatrix();
     console.log('Food added:', this.selectedFood.name, this.selectedQuantity);
@@ -102,59 +112,58 @@ export class NutriTrackerComponent implements OnInit {
     this.selectedList = this.selectedList.filter(f => f.name !== name);
   }
 
-  generateNutrientMatrix(masterList: Nutrient[]): {
-    matrix: NutrientRdaRow[];
-    totals: { [nutrientName: string]: { percent: number; status: string; icon: string } };
-  } {
-    const totals: { [nutrientName: string]: { percent: number; status: string; icon: string } } = {};
-    const matrix: NutrientRdaRow[] = [];
+  updateNutrientsMatrix(): void {
+    const nutrientGroups: Record<string, Nutrient[]> = {
+      macros: this.masterMacros,
+      vitamins: this.masterVitamins,
+      minerals: this.masterMinerals,
+      aminoAcids: this.masterAminoAcids
+    };
+    type NutrientKey = 'macros' | 'vitamins' | 'minerals' | 'aminoAcids';
+    
+    for (const key of Object.keys(nutrientGroups) as NutrientKey[]) {
+      const masterList = nutrientGroups[key as keyof Food];
+      const matrix: NutrientRdaRow[] = [];
+      const totals: Record<string, number> = {};
 
-    for (const food of this.selectedList) {
-      const values: { [nutrient: string]: NutrientCell } = {};
+      for (const food of this.selectedList) {
+        const values: Record<string, NutrientCell> = {};
 
-      for (const nutrient of masterList) {
-        const name = nutrient.name;
-        const raw = food.nutrients[name] ?? 0;
-        const adjusted = raw * food.quantity / 100;
-        const { percent, status } = this.computeNutrientStatus(adjusted, nutrient.rda, nutrient.max);
+        for (const nutrient of masterList) {
+          const raw = food[key][nutrient.name]
 
-        values[name] = {
-          value: Math.round(adjusted * 100) / 100,
-          percent,
-          status
-        };
+          const adjusted = raw * food.quantity / 100;
+          const { percent, status, icon } = this.computeNutrientStatus(adjusted, nutrient.rda, nutrient.max);
 
-        const currentTotal = (totals[name]?.percent ?? 0) + percent;
-        const { status: totalNutrientStatus, icon } = this.computeNutrientStatus((currentTotal * nutrient.rda) / 100, nutrient.rda, nutrient.max)
-        totals[name] = {
-          percent: currentTotal,
-          status: totalNutrientStatus,
-          icon
-        };
+          values[nutrient.name] = { value: +adjusted.toFixed(2), percent, status };
+          totals[nutrient.name] = (totals[nutrient.name] ?? 0) + adjusted;
+        }
+
+        matrix.push({ food: food.name, values });
       }
 
-      matrix.push({ food: food.name, values });
+      const totalStatus: Record<string, { percent: number; status: string; icon: string }> = {};
+      for (const nutrient of masterList) {
+        const totalValue = totals[nutrient.name] ?? 0;
+        const { percent, status, icon } = this.computeNutrientStatus(totalValue, nutrient.rda, nutrient.max);
+        totalStatus[nutrient.name] = { percent, status, icon };
+      }
+
+      if (key === 'macros') {
+        this.macroRdaMatrix = matrix;
+        this.macroRdaTotals = totalStatus;
+      } else if (key === 'vitamins') {
+        this.vitaminRdaMatrix = matrix;
+        this.vitaminRdaTotals = totalStatus;
+      } else if (key === 'minerals') {
+        this.mineralRdaMatrix = matrix;
+        this.mineralRdaTotals = totalStatus;
+      } else if (key === 'aminoAcids') {
+        this.aminoAcidRdaMatrix = matrix;
+        this.aminoAcidRdaTotals = totalStatus;
+      }
     }
-
-    return { matrix, totals };
   }
-
-
-  updateNutrientsMatrix(): void {
-    const { matrix: macroMatrix, totals: macroTotals } = this.generateNutrientMatrix(this.masterMacros);
-    this.macroRdaMatrix = macroMatrix;
-    this.macroRdaTotals = macroTotals;
-
-    const { matrix: vitaminMatrix, totals: vitaminTotals } = this.generateNutrientMatrix(this.masterVitamins);
-    this.vitaminRdaMatrix = vitaminMatrix;
-    this.vitaminRdaTotals = vitaminTotals;
-
-    const { matrix: mineralMatrix, totals: mineralTotals } = this.generateNutrientMatrix(this.masterMinerals);
-    this.mineralRdaMatrix = mineralMatrix;
-    this.mineralRdaTotals = mineralTotals;
-  }
-
-
 
   computeNutrientStatus(value: number, rda: number, max: number | null): { percent: number; status: string, icon: string } {
     const percent = rda > 0 ? Math.round((value / rda) * 100) : 0;

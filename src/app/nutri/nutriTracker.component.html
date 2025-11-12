@@ -1,3 +1,5 @@
+
+
 <div class="dashboard-container">
     <div class="profile-row">
         <div class="selector">
@@ -21,11 +23,6 @@
             <option [ngValue]="null" disabled>Select a food</option>
             <optgroup label="Cereals(Cooked)">
                 @for (food of cereals; track $index) {
-                <option [ngValue]="food">{{ food.name }}</option>
-                }
-            </optgroup>
-             <optgroup label="Millets(Cooked)">
-                @for (food of millets; track $index) {
                 <option [ngValue]="food">{{ food.name }}</option>
                 }
             </optgroup>
@@ -74,6 +71,11 @@
                 <option [ngValue]="food">{{ food.name }}</option>
                 }
             </optgroup>
+            <optgroup label="Millets(Cooked)">
+                @for (food of millets; track $index) {
+                <option [ngValue]="food">{{ food.name }}</option>
+                }
+            </optgroup>
         </select>
         <label for="quantity">Quantity</label>
         <input name="quantity" id="quantity" type="number" [(ngModel)]="selectedQuantity" min="1" />
@@ -86,7 +88,7 @@
         <h3>Selected Foods</h3>
         <ul>
             @for (food of selectedList; track $index) {
-            <li> {{ food.name }} - {{ food.quantity }} {{ food.unit }}
+            <li> {{ food.name }} - {{ food.quantity }} {{ food.units }}
                 <button (click)="removeFood(food.name)">Remove</button>
             </li>
             }
@@ -101,7 +103,7 @@
                 @if(macroRdaTotals[macro.name]) {
                 <th [ngClass]="getStatusClass(macroRdaTotals[macro.name].status)">
                     {{ macro.name }}<br>
-                    <small>{{ macro.rda }}{{ macro.unit }} {{macroRdaTotals[macro.name].icon}}</small>
+                    <small>{{ macro.rda }}{{ macro.units }} {{macroRdaTotals[macro.name].icon}}</small>
                 </th>
                 }
                 }
@@ -112,7 +114,7 @@
             <tr>
                 <td>{{ row.food }}</td>
                 @for (macro of masterMacros; track $index) {
-                <td> {{ row.values[macro.name].value }} {{ macro.unit }}<br>
+                <td> {{ row.values[macro.name].value }} {{ macro.units }}<br>
                     <small>{{ row.values[macro.name].percent}}%</small>
                 </td>
                 }
@@ -140,7 +142,7 @@
                 @for (vitamin of masterVitamins; track $index) {
                 @if(vitaminRdaTotals[vitamin.name]) {
                 <th [ngClass]="getStatusClass(vitaminRdaTotals[vitamin.name].status)">{{ vitamin.name }}<br>
-                    <small>{{ vitamin.rda }} {{ vitamin.unit }} {{vitaminRdaTotals[vitamin.name].icon}}</small>
+                    <small>{{ vitamin.rda }} {{ vitamin.units }} {{vitaminRdaTotals[vitamin.name].icon}}</small>
                 </th>
                 }
                 }
@@ -149,7 +151,7 @@
         <tbody> @for (row of vitaminRdaMatrix; track $index) { <tr>
                 <td>{{ row.food }}</td>
                 @for (vitamin of masterVitamins; track $index) {
-                <td> {{row.values[vitamin.name].value }} {{ vitamin.unit }}<br>
+                <td> {{row.values[vitamin.name].value }} {{ vitamin.units }}<br>
                     <small>{{row.values[vitamin.name].percent }}%</small>
                 </td>
                 }
@@ -178,7 +180,7 @@
                 @for (mineral of masterMinerals; track $index) {
                 @if(mineralRdaTotals[mineral.name]) {
                 <th [ngClass]="getStatusClass(mineralRdaTotals[mineral.name].status)">{{ mineral.name }}<br>
-                    <small>{{ mineral.rda }} {{ mineral.unit }} {{mineralRdaTotals[mineral.name].icon}}</small>
+                    <small>{{ mineral.rda }} {{ mineral.units }} {{mineralRdaTotals[mineral.name].icon}}</small>
                 </th>
                 }
                 }
@@ -189,7 +191,7 @@
                 <td>{{ row.food }}</td>
                 @for (mineral of masterMinerals; track $index) {
                 <td>
-                    {{ row.values[mineral.name].value }} {{ mineral.unit }}<br>
+                    {{ row.values[mineral.name].value }} {{ mineral.units }}<br>
                     <small>{{ row.values[mineral.name].percent }}%</small>
                 </td>
                 }
@@ -209,6 +211,47 @@
             </tr>
         </tfoot>
     </table>
+
+    <h3>🧱 Amino Acids as per RDA needed</h3>
+    <table class="aminoacid-rda-table">
+        <thead>
+            <tr>
+                <th>RDA</th>
+                @for (aminoacid of masterAminoAcids; track $index) {
+                @if(aminoAcidRdaTotals[aminoacid.name]) {
+                <th [ngClass]="getStatusClass(aminoAcidRdaTotals[aminoacid.name].status)">{{ aminoacid.name }}<br>
+                    <small>{{ aminoacid.rda }} {{ aminoacid.units }} {{aminoAcidRdaTotals[aminoacid.name].icon}}</small>
+                </th>
+                }
+                }
+            </tr>
+        </thead>
+        <tbody> @for (row of aminoAcidRdaMatrix; track $index) {
+            <tr>
+                <td>{{ row.food }}</td>
+                @for (aminoacid of masterAminoAcids; track $index) {
+                <td>
+                    {{ row.values[aminoacid.name].value }} {{ aminoacid.units }}<br>
+                    <small>{{ row.values[aminoacid.name].percent }}%</small>
+                </td>
+                }
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td><strong>Total</strong></td>
+                @for (aminoacid of masterAminoAcids; track $index) {
+                @if(aminoAcidRdaTotals[aminoacid.name]) {
+                <td [ngClass]="getStatusClass(aminoAcidRdaTotals[aminoacid.name].status)">
+                    <strong>{{aminoAcidRdaTotals[aminoacid.name].percent }}%</strong>
+                </td>
+                }
+                }
+            </tr>
+        </tfoot>
+    </table>
+    
     <h2 class="section-title">🍽️ Major Food Sources by Nutrient Type</h2>
     <h3>🧬 Macronutrients</h3>
     <table class="nutrient-table">
