@@ -1664,27 +1664,37 @@ export const pulses: Food[] = [
   },
   {
     name: 'Kidney Beans (Rajma)', units: 'grams',
-    macros: { Calories: 127, Protein: 8.7, Fat: 0.5, Carbohydrates: 22.8, 'Dietary Fiber': 6.4, Water: 65 }, minerals: { Calcium: 35, Iron: 2.9, Magnesium: 45, Phosphorus: 140, Potassium: 405, Sodium: 2, Zinc: 1.1, Copper: 0.3, Selenium: 1.2, Iodine: 0.05 }, vitamins: { 'Vitamin A': 0, 'Vitamin B12': 0, 'Vitamin B9': 130, 'Vitamin C': 1.2, 'Vitamin D': 0, 'Vitamin E': 0.1, 'Vitamin B6': 0.1, 'Vitamin B3': 0.5, 'Vitamin B2': 0.06, 'Vitamin B1': 0.09 },
+    macros: { Calories: 127, Protein: 8.7, Fat: 0.5, Carbohydrates: 22.8, 'Dietary Fiber': 6.4, Water: 65 },
+    minerals: { Calcium: 35, Iron: 2.9, Magnesium: 45, Phosphorus: 140, Potassium: 405, Sodium: 2, Zinc: 1.1, Copper: 0.3, Selenium: 1.2, Iodine: 0.05 },
+    vitamins: { 'Vitamin A': 0, 'Vitamin B12': 0, 'Vitamin B9': 130, 'Vitamin C': 1.2, 'Vitamin D': 0, 'Vitamin E': 0.1, 'Vitamin B6': 0.1, 'Vitamin B3': 0.5, 'Vitamin B2': 0.06, 'Vitamin B1': 0.09 },
     aminoAcids: { Histidine: 0.48, Isoleucine: 0.36, Leucine: 0.55, Lysine: 0.18, Methionine: 0.05, Phenylalanine: 0.5, Threonine: 0.25, Tryptophan: 0.05, Valine: 0.31 },
     fats: { 'Saturated Fat': 0.1, 'Monounsaturated Fat': 0.1, 'Polyunsaturated Fat': 0.2, 'Trans Fat': 0 }
   }];
 
 export const cereals: Food[] = [{
-  name: 'Rice', units: 'grams', macros: { Calories: 130, Protein: 2.7, Fat: 0.3, Carbohydrates: 28, 'Dietary Fiber': 0.4, Water: 68 }, minerals: { Calcium: 10, Iron: 0.2, Magnesium: 12, Phosphorus: 50, Potassium: 35, Sodium: 1, Zinc: 0.1, Copper: 0.1, Selenium: 5, Iodine: 0.2 }, vitamins: { 'Vitamin A': 0, 'Vitamin B12': 0, 'Vitamin B9': 3, 'Vitamin C': 0, 'Vitamin D': 0, 'Vitamin E': 0.05, 'Vitamin B6': 0.05, 'Vitamin B3': 1, 'Vitamin B2': 0.02, 'Vitamin B1': 0.05 },
+  name: 'Rice', units: 'grams', macros: { Calories: 130, Protein: 2.7, Fat: 0.3, Carbohydrates: 28, 'Dietary Fiber': 0.4, Water: 68 },
+  minerals: { Calcium: 10, Iron: 0.2, Magnesium: 12, Phosphorus: 50, Potassium: 35, Sodium: 1, Zinc: 0.1, Copper: 0.1, Selenium: 5, Iodine: 0.2 },
+  vitamins: { 'Vitamin A': 0, 'Vitamin B12': 0, 'Vitamin B9': 3, 'Vitamin C': 0, 'Vitamin D': 0, 'Vitamin E': 0.05, 'Vitamin B6': 0.05, 'Vitamin B3': 1, 'Vitamin B2': 0.02, 'Vitamin B1': 0.05 },
   aminoAcids: { Histidine: 0.1, Isoleucine: 0.18, Leucine: 0.35, Lysine: 0.15, Methionine: 0.10, Phenylalanine: 0.23, Threonine: 0.15, Tryptophan: 0.05, Valine: 0.26 },
   fats: { 'Saturated Fat': 0.06, 'Monounsaturated Fat': 0.09, 'Polyunsaturated Fat': 0.10, 'Trans Fat': 0 }
-}, {
-  name: 'Wheat', units: 'grams', macros: { Calories: 124, Protein: 3.6, Fat: 0.4, Carbohydrates: 24.1, 'Dietary Fiber': 1.3, Water: 70 }, minerals: { Calcium: 20, Iron: 2.4, Magnesium: 40, Phosphorus: 50, Potassium: 216, Sodium: 10, Zinc: 0.5, Copper: 0.2, Selenium: 20, Iodine: 0.3 }, vitamins: { 'Vitamin A': 0, 'Vitamin B12': 0, 'Vitamin B9': 15, 'Vitamin C': 0, 'Vitamin D': 0, 'Vitamin E': 0.1, 'Vitamin B6': 0.1, 'Vitamin B3': 2.5, 'Vitamin B2': 0.05, 'Vitamin B1': 0.2 },
+},
+{
+  name: 'Wheat', units: 'grams',
+  macros: { Calories: 124, Protein: 3.6, Fat: 0.4, Carbohydrates: 24.1, 'Dietary Fiber': 1.3, Water: 70 },
+  minerals: { Calcium: 20, Iron: 2.4, Magnesium: 40, Phosphorus: 50, Potassium: 216, Sodium: 10, Zinc: 0.5, Copper: 0.2, Selenium: 20, Iodine: 0.3 },
+  vitamins: { 'Vitamin A': 0, 'Vitamin B12': 0, 'Vitamin B9': 15, 'Vitamin C': 0, 'Vitamin D': 0, 'Vitamin E': 0.1, 'Vitamin B6': 0.1, 'Vitamin B3': 2.5, 'Vitamin B2': 0.05, 'Vitamin B1': 0.2 },
   aminoAcids: { Histidine: 0.23, Isoleucine: 0.36, Leucine: 0.71, Lysine: 0.23, Methionine: 0.18, Phenylalanine: 0.52, Threonine: 0.28, Tryptophan: 0.13, Valine: 0.42 },
   fats: { 'Saturated Fat': 0.07, 'Monounsaturated Fat': 0.06, 'Polyunsaturated Fat': 0.18, 'Trans Fat': 0 }
-}, {
+},
+{
   name: 'Barley',
   units: 'grams',
   macros: { Calories: 123, Protein: 2.3, Fat: 0.4, Carbohydrates: 28.2, 'Dietary Fiber': 3.8, Water: 68 }, minerals: { Calcium: 11, Iron: 1.3, Magnesium: 33, Phosphorus: 86, Potassium: 93, Sodium: 3, Zinc: 0.6, Copper: 0.1, Selenium: 13.5, Iodine: 0.2 },
   vitamins: { 'Vitamin A': 0, 'Vitamin B12': 0, 'Vitamin B9': 16, 'Vitamin C': 0, 'Vitamin D': 0, 'Vitamin E': 0.02, 'Vitamin B6': 0.03, 'Vitamin B3': 2, 'Vitamin B2': 0.05, 'Vitamin B1': 0.12 },
   aminoAcids: { Histidine: 0.05, Isoleucine: 0.08, Leucine: 0.15, Lysine: 0.08, Methionine: 0.04, Phenylalanine: 0.13, Threonine: 0.08, Tryptophan: 0.04, Valine: 0.11 },
   fats: { 'Saturated Fat': 0.08, 'Monounsaturated Fat': 0.05, 'Polyunsaturated Fat': 0.20, 'Trans Fat': 0 }
-}, {
+},
+{
   name: 'Oats',
   units: 'grams',
   macros: { Calories: 71, Protein: 2.54, Fat: 1.52, Carbohydrates: 12, 'Dietary Fiber': 1.7, Water: 83.6 },
@@ -1692,7 +1702,8 @@ export const cereals: Food[] = [{
   vitamins: { 'Vitamin A': 0, 'Vitamin B12': 0, 'Vitamin B9': 6, 'Vitamin C': 0, 'Vitamin D': 0, 'Vitamin E': 0.1, 'Vitamin B6': 0.05, 'Vitamin B3': 0.2, 'Vitamin B2': 0.03, 'Vitamin B1': 0.1 },
   aminoAcids: { Histidine: 0.14, Isoleucine: 0.22, Leucine: 0.43, Lysine: 0.24, Methionine: 0.12, Phenylalanine: 0.30, Threonine: 0.17, Tryptophan: 0.10, Valine: 0.30 },
   fats: { 'Saturated Fat': 0.27, 'Monounsaturated Fat': 0.41, 'Polyunsaturated Fat': 0.63, 'Trans Fat': 0 }
-}, {
+},
+{
   name: 'Quinoa',
   units: 'grams',
   macros: { Calories: 120, Protein: 5, Fat: 2.2, Carbohydrates: 26.4, 'Dietary Fiber': 2.3, Water: 71.6 },
@@ -1886,7 +1897,8 @@ export const fruits: Food[] = [
       Histidine: 0.015, Isoleucine: 0.02, Leucine: 0.035,
       Lysine: 0.03, Methionine: 0.008, Phenylalanine: 0.025, Threonine: 0.02, Tryptophan: 0.006,
       Valine: 0.03
-    }, fats: {
+    },
+    fats: {
       "Saturated Fat": 0.03, "Monounsaturated Fat": 0.01,
       "Polyunsaturated Fat": 0.05, "Trans Fat": 0
     }
@@ -1920,18 +1932,20 @@ export const fruits: Food[] = [
   {
     name: "Custard Apple",
     units: "grams",
-    macros: { Protein: 1.7, Fat: 0.4, Carbohydrates: 23.6, "Dietary Fiber": 3, Water: 70, Calories: 94 }, minerals: { Calcium: 30, Iron: 0.6, Magnesium: 18, Phosphorus: 21, Potassium: 382, Sodium: 4, Zinc: 0.1, Copper: 0.09, Selenium: 0.6, Iodine: 0.2 },
+    macros: { Protein: 1.7, Fat: 0.4, Carbohydrates: 23.6, "Dietary Fiber": 3, Water: 70, Calories: 94 },
+    minerals: { Calcium: 30, Iron: 0.6, Magnesium: 18, Phosphorus: 21, Potassium: 382, Sodium: 4, Zinc: 0.1, Copper: 0.09, Selenium: 0.6, Iodine: 0.2 },
     vitamins: { "Vitamin A": 5, "Vitamin B12": 0, "Vitamin B9": 14, "Vitamin C": 36.3, "Vitamin D": 0, "Vitamin E": 0.4, "Vitamin B6": 0.2, "Vitamin B3": 0.5, "Vitamin B2": 0.1, "Vitamin B1": 0.08 },
     aminoAcids: { Histidine: 0.025, Isoleucine: 0.035, Leucine: 0.065, Lysine: 0.055, Methionine: 0.015, Phenylalanine: 0.04, Threonine: 0.035, Tryptophan: 0.012, Valine: 0.05 },
     fats: { "Saturated Fat": 0.1, "Monounsaturated Fat": 0.1, "Polyunsaturated Fat": 0.1, "Trans Fat": 0 }
-  }, 
+  },
   {
     name: "Watermelon",
     units: "grams",
     macros: { Protein: 0.6, Fat: 0.2, Carbohydrates: 7.6, "Dietary Fiber": 0.4, Water: 91.5, Calories: 30 },
     minerals: { Calcium: 7, Iron: 0.2, Magnesium: 10, Phosphorus: 11, Potassium: 112, Sodium: 1, Zinc: 0.1, Copper: 0.04, Selenium: 0.4, Iodine: 0.2 },
     vitamins: { "Vitamin A": 569, "Vitamin B12": 0, "Vitamin B9": 3, "Vitamin C": 8.1, "Vitamin D": 0, "Vitamin E": 0.05, "Vitamin B6": 0.045, "Vitamin B3": 0.2, "Vitamin B2": 0.02, "Vitamin B1": 0.03 },
-    aminoAcids: { Histidine: 0.01, Isoleucine: 0.015, Leucine: 0.03, Lysine: 0.025, Methionine: 0.006, Phenylalanine: 0.02, Threonine: 0.018, Tryptophan: 0.004, Valine: 0.022 }, fats: { "Saturated Fat": 0.02, "Monounsaturated Fat": 0.03, "Polyunsaturated Fat": 0.05, "Trans Fat": 0 }
+    aminoAcids: { Histidine: 0.01, Isoleucine: 0.015, Leucine: 0.03, Lysine: 0.025, Methionine: 0.006, Phenylalanine: 0.02, Threonine: 0.018, Tryptophan: 0.004, Valine: 0.022 },
+    fats: { "Saturated Fat": 0.02, "Monounsaturated Fat": 0.03, "Polyunsaturated Fat": 0.05, "Trans Fat": 0 }
   },
   {
     name: "Pomegranate",
@@ -1939,20 +1953,26 @@ export const fruits: Food[] = [
     macros: { Protein: 1.7, Fat: 0.3, Carbohydrates: 19, "Dietary Fiber": 4, Water: 77, Calories: 83 },
     minerals: { Calcium: 10, Iron: 0.3, Magnesium: 12, Phosphorus: 36, Potassium: 236, Sodium: 3, Zinc: 0.4, Copper: 0.2, Selenium: 0.6, Iodine: 0.2 },
     vitamins: { "Vitamin A": 0, "Vitamin B12": 0, "Vitamin B9": 27, "Vitamin C": 10.2, "Vitamin D": 0, "Vitamin E": 0.6, "Vitamin B6": 0.075, "Vitamin B3": 0.3, "Vitamin B2": 0.03, "Vitamin B1": 0.07 },
-    aminoAcids: { Histidine: 0.022, Isoleucine: 0.032, Leucine: 0.058, Lysine: 0.048, Methionine: 0.011, Phenylalanine: 0.038, Threonine: 0.03, Tryptophan: 0.009, Valine: 0.042 }, fats: { "Saturated Fat": 0.05, "Monounsaturated Fat": 0.05, "Polyunsaturated Fat": 0.1, "Trans Fat": 0 }
+    aminoAcids: { Histidine: 0.022, Isoleucine: 0.032, Leucine: 0.058, Lysine: 0.048, Methionine: 0.011, Phenylalanine: 0.038, Threonine: 0.03, Tryptophan: 0.009, Valine: 0.042 },
+    fats: { "Saturated Fat": 0.05, "Monounsaturated Fat": 0.05, "Polyunsaturated Fat": 0.1, "Trans Fat": 0 }
   },
   {
     name: "Pineapple",
     units: "grams",
     macros: { Protein: 0.5, Fat: 0.1, Carbohydrates: 13, "Dietary Fiber": 1, Water: 86, Calories: 50 },
     minerals: { Calcium: 13, Iron: 0.3, Magnesium: 12, Phosphorus: 8, Potassium: 109, Sodium: 1, Zinc: 0.1, Copper: 0.1, Selenium: 0.6, Iodine: 0.1 },
-    vitamins: { "Vitamin A": 58, "Vitamin B12": 0, "Vitamin B9": 18, "Vitamin C": 47.8, "Vitamin D": 0, "Vitamin E": 0.02, "Vitamin B6": 0.11, "Vitamin B3": 0.5, "Vitamin B2": 0.03, "Vitamin B1": 0.08 }, aminoAcids: { Histidine: 0.018, Isoleucine: 0.026, Leucine: 0.048, Lysine: 0.04, Methionine: 0.01, Phenylalanine: 0.03, Threonine: 0.025, Tryptophan: 0.008, Valine: 0.035 }, fats: { "Saturated Fat": 0.01, "Monounsaturated Fat": 0.01, "Polyunsaturated Fat": 0.04, "Trans Fat": 0 }
+    vitamins: { "Vitamin A": 58, "Vitamin B12": 0, "Vitamin B9": 18, "Vitamin C": 47.8, "Vitamin D": 0, "Vitamin E": 0.02, "Vitamin B6": 0.11, "Vitamin B3": 0.5, "Vitamin B2": 0.03, "Vitamin B1": 0.08 },
+    aminoAcids: { Histidine: 0.018, Isoleucine: 0.026, Leucine: 0.048, Lysine: 0.04, Methionine: 0.01, Phenylalanine: 0.03, Threonine: 0.025, Tryptophan: 0.008, Valine: 0.035 },
+    fats: { "Saturated Fat": 0.01, "Monounsaturated Fat": 0.01, "Polyunsaturated Fat": 0.04, "Trans Fat": 0 }
   },
   {
     name: "Guava",
     units: "grams",
-    macros: { Protein: 2.6, Fat: 0.9, Carbohydrates: 14.3, "Dietary Fiber": 5.4, Water: 80.8, Calories: 68 }, minerals: { Calcium: 18, Iron: 0.3, Magnesium: 22, Phosphorus: 40, Potassium: 417, Sodium: 2, Zinc: 0.2, Copper: 0.2, Selenium: 0.6, Iodine: 0.1 }, vitamins: { "Vitamin A": 624, "Vitamin B12": 0, "Vitamin B9": 49, "Vitamin C": 228.3, "Vitamin D": 0, "Vitamin E": 0.7, "Vitamin B6": 0.11, "Vitamin B3": 1.1, "Vitamin B2": 0.04, "Vitamin B1": 0.07 },
-    aminoAcids: { Histidine: 0.03, Isoleucine: 0.045, Leucine: 0.08, Lysine: 0.065, Methionine: 0.018, Phenylalanine: 0.05, Threonine: 0.04, Tryptophan: 0.013, Valine: 0.06 }, fats: { "Saturated Fat": 0.27, "Monounsaturated Fat": 0.09, "Polyunsaturated Fat": 0.34, "Trans Fat": 0 }
+    macros: { Protein: 2.6, Fat: 0.9, Carbohydrates: 14.3, "Dietary Fiber": 5.4, Water: 80.8, Calories: 68 },
+    minerals: { Calcium: 18, Iron: 0.3, Magnesium: 22, Phosphorus: 40, Potassium: 417, Sodium: 2, Zinc: 0.2, Copper: 0.2, Selenium: 0.6, Iodine: 0.1 },
+    vitamins: { "Vitamin A": 624, "Vitamin B12": 0, "Vitamin B9": 49, "Vitamin C": 228.3, "Vitamin D": 0, "Vitamin E": 0.7, "Vitamin B6": 0.11, "Vitamin B3": 1.1, "Vitamin B2": 0.04, "Vitamin B1": 0.07 },
+    aminoAcids: { Histidine: 0.03, Isoleucine: 0.045, Leucine: 0.08, Lysine: 0.065, Methionine: 0.018, Phenylalanine: 0.05, Threonine: 0.04, Tryptophan: 0.013, Valine: 0.06 },
+    fats: { "Saturated Fat": 0.27, "Monounsaturated Fat": 0.09, "Polyunsaturated Fat": 0.34, "Trans Fat": 0 }
   },
   {
     name: "Mango",
@@ -1996,7 +2016,8 @@ export const fruits: Food[] = [
     macros: { Protein: 1, Fat: 0.5, Carbohydrates: 14.5, "Dietary Fiber": 3.6, Water: 84, Calories: 57 },
     minerals: { Calcium: 6, Iron: 0.3, Magnesium: 6, Phosphorus: 12, Potassium: 77, Sodium: 1.5, Zinc: 0.2, Copper: 0.05, Selenium: 0.4, Iodine: 0.2 },
     vitamins: { "Vitamin A": 54, "Vitamin B12": 0, "Vitamin B9": 6, "Vitamin C": 14.4, "Vitamin D": 0, "Vitamin E": 0.8, "Vitamin B6": 0.1, "Vitamin B3": 0.4, "Vitamin B2": 0.05, "Vitamin B1": 0.03 },
-    aminoAcids: { Histidine: 0.014, Isoleucine: 0.021, Leucine: 0.038, Lysine: 0.03, Methionine: 0.008, Phenylalanine: 0.025, Threonine: 0.02, Tryptophan: 0.006, Valine: 0.028 }, fats: { "Saturated Fat": 0.03, "Monounsaturated Fat": 0.05, "Polyunsaturated Fat": 0.25, "Trans Fat": 0 }
+    aminoAcids: { Histidine: 0.014, Isoleucine: 0.021, Leucine: 0.038, Lysine: 0.03, Methionine: 0.008, Phenylalanine: 0.025, Threonine: 0.02, Tryptophan: 0.006, Valine: 0.028 }, 
+    fats: { "Saturated Fat": 0.03, "Monounsaturated Fat": 0.05, "Polyunsaturated Fat": 0.25, "Trans Fat": 0 }
   },
   {
     name: "Grapes (Raw)",
@@ -2015,12 +2036,14 @@ export const fruits: Food[] = [
     fats: { "Saturated Fat": 0.2, "Monounsaturated Fat": 0.1, "Polyunsaturated Fat": 0.2, "Trans Fat": 0 }
   },
   {
-    name: "Papaya (Raw)", units: "grams", macros: { Protein: 0.5, Fat: 0.3, Carbohydrates: 11, "Dietary Fiber": 1.7, Water: 88, Calories: 43 },
+    name: "Papaya (Raw)", units: "grams", 
+    macros: { Protein: 0.5, Fat: 0.3, Carbohydrates: 11, "Dietary Fiber": 1.7, Water: 88, Calories: 43 },
     minerals: { Calcium: 20, Iron: 0.3, Magnesium: 21, Phosphorus: 10, Potassium: 182, Sodium: 8, Zinc: 0.1, Copper: 0.03, Selenium: 0.6, Iodine: 0.2 },
     vitamins: { "Vitamin A": 950, "Vitamin B12": 0, "Vitamin B9": 38, "Vitamin C": 60.9, "Vitamin D": 0, "Vitamin E": 0.3, "Vitamin B6": 0.04, "Vitamin B3": 0.3, "Vitamin B2": 0.03, "Vitamin B1": 0.02 },
     aminoAcids: { Histidine: 0.02, Isoleucine: 0.03, Leucine: 0.055, Lysine: 0.045, Methionine: 0.012, Phenylalanine: 0.035, Threonine: 0.028, Tryptophan: 0.009, Valine: 0.04 },
     fats: { "Saturated Fat": 0.08, "Monounsaturated Fat": 0.07, "Polyunsaturated Fat": 0.07, "Trans Fat": 0 }
-  }, {
+  }, 
+  {
     name: "Sapota (Chikoo)", units: "grams",
     macros: { Protein: 0.7, Fat: 1.1, Carbohydrates: 20, "Dietary Fiber": 5.3, Water: 73, Calories: 83 },
     minerals: { Calcium: 21, Iron: 0.8, Magnesium: 12, Phosphorus: 12, Potassium: 193, Sodium: 12, Zinc: 0.1, Copper: 0.1, Selenium: 0.4, Iodine: 0.2 },
@@ -2029,7 +2052,8 @@ export const fruits: Food[] = [
     fats: { "Saturated Fat": 0.3, "Monounsaturated Fat": 0.4, "Polyunsaturated Fat": 0.2, "Trans Fat": 0 }
   },
   {
-    name: "Jamun (Java Plum)", units: "grams", macros: { Protein: 0.7, Fat: 0.2, Carbohydrates: 14, "Dietary Fiber": 0.9, Water: 84, Calories: 62 },
+    name: "Jamun (Java Plum)", units: "grams", 
+    macros: { Protein: 0.7, Fat: 0.2, Carbohydrates: 14, "Dietary Fiber": 0.9, Water: 84, Calories: 62 },
     minerals: { Calcium: 15, Iron: 1.2, Magnesium: 18, Phosphorus: 15, Potassium: 79, Sodium: 26, Zinc: 0.1, Copper: 0.05, Selenium: 0.4, Iodine: 0.2 },
     vitamins: { "Vitamin A": 3, "Vitamin B12": 0, "Vitamin B9": 3, "Vitamin C": 18, "Vitamin D": 0, "Vitamin E": 0.2, "Vitamin B6": 0.02, "Vitamin B3": 0.3, "Vitamin B2": 0.01, "Vitamin B1": 0.01 },
     aminoAcids: { Histidine: 0.026, Isoleucine: 0.038, Leucine: 0.065, Lysine: 0.052, Methionine: 0.014, Phenylalanine: 0.04, Threonine: 0.032, Tryptophan: 0.01, Valine: 0.045 },
@@ -2101,14 +2125,18 @@ export const nonVegFoods: Food[] = [
   {
     name: 'Chicken (Skinless)', units: 'grams',
     macros: { Protein: 24, Fat: 13, Carbohydrates: 0.1, 'Dietary Fiber': 0, Water: 65.8, Calories: 165 },
-    minerals: { Calcium: 13, Iron: 1.6, Magnesium: 27, Phosphorus: 190, Potassium: 204, Sodium: 71, Zinc: 1, Copper: 0.04, Selenium: 20, Iodine: 0.3 }, vitamins: { 'Vitamin A': 100, 'Vitamin B12': 0.47, 'Vitamin B9': 6, 'Vitamin C': 0, 'Vitamin D': 0.1, 'Vitamin E': 0.3, 'Vitamin B6': 0.5, 'Vitamin B3': 13.7, 'Vitamin B2': 0.2, 'Vitamin B1': 0.07 },
-    aminoAcids: { Histidine: 0.9, Isoleucine: 1.3, Leucine: 2.3, Lysine: 2.6, Methionine: 0.8, Phenylalanine: 1.1, Threonine: 1.1, Tryptophan: 0.3, Valine: 1.4 }, fats: { 'Saturated Fat': 3.8, 'Monounsaturated Fat': 5.7, 'Polyunsaturated Fat': 2.9, 'Trans Fat': 0.1 }
+    minerals: { Calcium: 13, Iron: 1.6, Magnesium: 27, Phosphorus: 190, Potassium: 204, Sodium: 71, Zinc: 1, Copper: 0.04, Selenium: 20, Iodine: 0.3 },
+    vitamins: { 'Vitamin A': 100, 'Vitamin B12': 0.47, 'Vitamin B9': 6, 'Vitamin C': 0, 'Vitamin D': 0.1, 'Vitamin E': 0.3, 'Vitamin B6': 0.5, 'Vitamin B3': 13.7, 'Vitamin B2': 0.2, 'Vitamin B1': 0.07 },
+    aminoAcids: { Histidine: 0.9, Isoleucine: 1.3, Leucine: 2.3, Lysine: 2.6, Methionine: 0.8, Phenylalanine: 1.1, Threonine: 1.1, Tryptophan: 0.3, Valine: 1.4 },
+    fats: { 'Saturated Fat': 3.8, 'Monounsaturated Fat': 5.7, 'Polyunsaturated Fat': 2.9, 'Trans Fat': 0.1 }
   },
   {
     name: 'Mutton', units: 'grams',
     macros: { Protein: 25, Fat: 21, Carbohydrates: 0, 'Dietary Fiber': 0, Water: 52, Calories: 294 },
-    minerals: { Calcium: 17, Iron: 1.9, Magnesium: 20, Phosphorus: 190, Potassium: 310, Sodium: 72, Zinc: 4, Copper: 0.09, Selenium: 24, Iodine: 0.2 }, vitamins: { 'Vitamin A': 0, 'Vitamin B12': 2.5, 'Vitamin B9': 9, 'Vitamin C': 0, 'Vitamin D': 0.1, 'Vitamin E': 0.15, 'Vitamin B6': 0.3, 'Vitamin B3': 5.8, 'Vitamin B2': 0.2, 'Vitamin B1': 0.05 },
-    aminoAcids: { Histidine: 0.9, Isoleucine: 1.4, Leucine: 2.4, Lysine: 2.3, Methionine: 0.9, Phenylalanine: 1.2, Threonine: 1.2, Tryptophan: 0.3, Valine: 1.5 }, fats: { 'Saturated Fat': 9.3, 'Monounsaturated Fat': 8.7, 'Polyunsaturated Fat': 1.4, 'Trans Fat': 0.2 }
+    minerals: { Calcium: 17, Iron: 1.9, Magnesium: 20, Phosphorus: 190, Potassium: 310, Sodium: 72, Zinc: 4, Copper: 0.09, Selenium: 24, Iodine: 0.2 },
+    vitamins: { 'Vitamin A': 0, 'Vitamin B12': 2.5, 'Vitamin B9': 9, 'Vitamin C': 0, 'Vitamin D': 0.1, 'Vitamin E': 0.15, 'Vitamin B6': 0.3, 'Vitamin B3': 5.8, 'Vitamin B2': 0.2, 'Vitamin B1': 0.05 },
+    aminoAcids: { Histidine: 0.9, Isoleucine: 1.4, Leucine: 2.4, Lysine: 2.3, Methionine: 0.9, Phenylalanine: 1.2, Threonine: 1.2, Tryptophan: 0.3, Valine: 1.5 },
+    fats: { 'Saturated Fat': 9.3, 'Monounsaturated Fat': 8.7, 'Polyunsaturated Fat': 1.4, 'Trans Fat': 0.2 }
   },
   {
     name: 'Beef', units: 'grams',
@@ -2122,7 +2150,8 @@ export const nonVegFoods: Food[] = [
     macros: { Protein: 22, Fat: 5, Carbohydrates: 0, 'Dietary Fiber': 0, Water: 70, Calories: 145 },
     minerals: { Calcium: 20, Iron: 0.9, Magnesium: 30, Phosphorus: 210, Potassium: 300, Sodium: 60, Zinc: 0.8, Copper: 0.1, Selenium: 36, Iodine: 0.4 },
     vitamins: { 'Vitamin A': 50, 'Vitamin B12': 2.5, 'Vitamin B9': 15, 'Vitamin C': 0, 'Vitamin D': 0.2, 'Vitamin E': 0.4, 'Vitamin B6': 0.3, 'Vitamin B3': 2.9, 'Vitamin B2': 0.1, 'Vitamin B1': 0.05 },
-    aminoAcids: { Histidine: 0.8, Isoleucine: 1.2, Leucine: 2.1, Lysine: 2.4, Methionine: 0.7, Phenylalanine: 1, Threonine: 1, Tryptophan: 0.3, Valine: 1.3 }, fats: { 'Saturated Fat': 1.1, 'Monounsaturated Fat': 1.8, 'Polyunsaturated Fat': 1.7, 'Trans Fat': 0.1 }
+    aminoAcids: { Histidine: 0.8, Isoleucine: 1.2, Leucine: 2.1, Lysine: 2.4, Methionine: 0.7, Phenylalanine: 1, Threonine: 1, Tryptophan: 0.3, Valine: 1.3 },
+    fats: { 'Saturated Fat': 1.1, 'Monounsaturated Fat': 1.8, 'Polyunsaturated Fat': 1.7, 'Trans Fat': 0.1 }
   },
   {
     name: 'Shrimp', units: 'grams',
